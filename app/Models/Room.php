@@ -23,6 +23,7 @@ class Room extends Model
         'floor',
         'building',
         'status',
+        'room_type',
         'min_days_advance',
         'max_days_advance'
     ];
