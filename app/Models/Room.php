@@ -25,7 +25,17 @@ class Room extends Model
         'status',
         'room_type',
         'min_days_advance',
-        'max_days_advance'
+        'max_days_advance',
+        'attributes',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'attributes' => 'array',
     ];
 
     /**
