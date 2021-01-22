@@ -26,13 +26,12 @@ class RoomControllerTest extends TestCase
         $this->assertDatabaseMissing('rooms', ['name' => $room->name]);
 
         $response = $this->actingAs($user)->post('/rooms', [
-            'name' => $room->name, 'number' => $room->number,
-            'floor' => $room->floor, 'building' => $room->building, 'status' => $room->status , 'room_type'  => $room->room_type
             'name' => $room->name, 
             'number' => $room->number,
             'floor' => $room->floor, 
             'building' => $room->building, 
             'status' => $room->status,
+            'room_type' => $room->room_type,
             'capacity_standing' => $room->attributes['capacity_standing'],
             'capacity_sitting' => $room->attributes['capacity_sitting'],
             'food' => $room->attributes['food'],
@@ -53,13 +52,12 @@ class RoomControllerTest extends TestCase
 
         $response->assertStatus(302);
         $this->assertDatabaseHas('rooms', [
-            'name' => $room->name, 'number' => $room->number,
-            'floor' => $room->floor, 'building' => $room->building, 'status' => $room->status, 'room_type'  => $room->room_type
             'name' => $room->name, 
             'number' => $room->number,
             'floor' => $room->floor, 
             'building' => $room->building, 
             'status' => $room->status, 
+            'room_type' => $room->room_type,
             'attributes' => json_encode([ 
                 'capacity_standing' => $room->attributes['capacity_standing'],           
                 'capacity_sitting' => $room->attributes['capacity_sitting'],
@@ -99,7 +97,7 @@ class RoomControllerTest extends TestCase
                 'floor' => $room->floor,
                 'building' => $room->building,
                 'status' => $room->status,
-                'room_type'  => $room->room_type,
+                'room_type' => $room->room_type,
                 'capacity_standing' => $room->attributes['capacity_standing'],
                 'capacity_sitting' => $room->attributes['capacity_sitting'],
                 'food' => $room->attributes['food'],
@@ -133,8 +131,7 @@ class RoomControllerTest extends TestCase
             'floor' => $room->floor,
             'building' => $room->building,
             'status' => $room->status,
-            'room_type'  => $room->room_type
-
+            'room_type' => $room->room_type,
             'attributes' => json_encode([
                 'capacity_standing' => $room->attributes['capacity_standing'],
                 'capacity_sitting' => $room->attributes['capacity_sitting'],
@@ -186,12 +183,6 @@ class RoomControllerTest extends TestCase
 
         $this->assertDatabaseHas('rooms', [
             'name' => $room->name, 'number' => $room->number,
-            'floor' => $room->floor, 'building' => $room->building, 'status' => $room->status ,'room_type'  => $room->room_type,
-        ]);
-
-        $response = $this->actingAs($user)->put('/rooms/' . $room->id, [
-            'name' => 'the room', 'number' => '24',
-            'floor' => '2009', 'building' => 'wiseau', 'status' => 'available' ,'room_type'  => "lounge"
             'floor' => $room->floor, 'building' => $room->building,
             'status' => $room->status,'attributes' => json_encode($room->attributes),             
         ]);
@@ -201,7 +192,8 @@ class RoomControllerTest extends TestCase
             'number' => '24',
             'floor' => '2009', 
             'building' => 'wiseau', 
-            'status' => 'available',       
+            'status' => 'available', 
+            'room_type' => 'lounge',      
             'capacity_standing' => '100',
             'capacity_sitting' => '80',
             'food' => 'true',
@@ -223,13 +215,12 @@ class RoomControllerTest extends TestCase
         $response->assertStatus(302);
 
         $this->assertDatabaseHas('rooms', [
-            'name' => 'the room', 'number' => '24',
-            'floor' => '2009', 'building' => 'wiseau', 'status' => 'available' , 'room_type' => "lounge"
             'name' => 'the room', 
             'number' => '24',
             'floor' => '2009', 
             'building' => 'wiseau', 
-            'status' => 'available', 
+            'status' => 'available',
+            'room_type' => 'lounge',
             'attributes' => json_encode([            
                 'capacity_standing' => '100',
                 'capacity_sitting' => '80',
