@@ -159,9 +159,7 @@
           id="room_type"
         >
           <option value="" selected disabled hidden>Select Room Type</option>
-          <option value="lounge">Lounge</option>
-          <option value="mezzanine">Mezzanine</option>
-          <option value="conference">Conference</option>
+          <option v-for="roomType in availableRoomTypes" :key="roomType" :value="roomType">{{roomType}}</option>
         </select>
         <jet-input-error
           :message="createRoomForm.error('room_type')"
@@ -382,6 +380,13 @@ export default {
     JetInputError,
     JetLabel,
   },
+
+  props: {
+        availableRoomTypes: {
+            type: Array,
+            required: true
+        },
+    },
 
     data() {
         return {

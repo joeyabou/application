@@ -17,6 +17,7 @@ class RoomController extends Controller
     {
         return inertia('Admin/Rooms/Index', [
             'rooms' => Room::all(),
+             'availableRoomTypes'=> Room::ROOM_TYPES,
         ]);
     }
 

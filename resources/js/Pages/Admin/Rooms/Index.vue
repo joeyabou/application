@@ -6,10 +6,10 @@
             </h2>
         </template> 
             <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-                <create-room-form />
+                <create-room-form :available-room-types="availableRoomTypes" />
             <div v-if="rooms.length > 0">
                 <jet-section-border />
-                <rooms-list :rooms="rooms" />
+                <rooms-list :rooms="rooms"  :available-room-types="availableRoomTypes"  />
             </div>
         </div>  
     </app-layout>
@@ -34,6 +34,10 @@ export default {
             default: function () {
                 return []
             },
+        },
+        availableRoomTypes: {
+            type: Array,
+            required: true
         }
     }
 }

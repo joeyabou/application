@@ -38,6 +38,8 @@ class Room extends Model
         'attributes' => 'array',
     ];
 
+    public const ROOM_TYPES =['Lounge', 'Mezzazine', 'Conference'];
+
     /**
      * Get the booking requests for the room.
      */

@@ -66,7 +66,8 @@
                     </div>
 
                     <update-room-form
-                        :room="roomBeingUpdated"
+                        :room="roomBeingUpdated" 
+                        :available-room-types="availableRoomTypes" 
                         @close="roomBeingUpdated = null">
                     </update-room-form>
 
@@ -124,6 +125,11 @@ export default {
             default: function () {
                 return []
             }
+        },
+
+        availableRoomTypes: {
+            type: Array,
+            required: true
         }
     },
 
