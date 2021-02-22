@@ -75,20 +75,21 @@ h2 {
 
 /* Table layout and bordering */
 table.responsive-spaced {
-  border-collapse: separate;
-  border-spacing: 1em 0;
   width: 100%;
 }
 
 /* Table header aligning and padding */
 table.responsive-spaced th {
-  text-align: center;
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1.5px solid #eaeaea;
 }
 
 /* Table data aligning and padding */
 table.responsive-spaced td {
-  line-height: 1.5em;
-  text-align: center;
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1.5px solid #eaeaea;
 }
 
 /* Table body spacing from headers */
